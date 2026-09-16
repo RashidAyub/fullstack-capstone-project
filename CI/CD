@@ -1,0 +1,46 @@
+GitHub Actions Workflow: CI/CD Pipeline
+Repository: RashidAyub/fullstack-capstone-project
+Workflow Run URL: https://github.com/RashidAyub/fullstack-capstone-project/actions/runs/35125211428
+Status: Completed
+Conclusion: Success
+
+Jobs and Steps Execution Summary:
+----------------------------------------------------------------------
+Step 1: Set up job                      [Status: completed, Conclusion: success]
+Step 2: Checkout repository             [Status: completed, Conclusion: success]
+Step 3: Set up Node.js                  [Status: completed, Conclusion: success]
+Step 4: Install sentiment dependencies  [Status: completed, Conclusion: success]
+Step 5: Install backend dependencies    [Status: completed, Conclusion: success]
+Step 6: Run backend tests               [Status: completed, Conclusion: success]
+Step 7: Install frontend dependencies   [Status: completed, Conclusion: success]
+Step 8: Build frontend                  [Status: completed, Conclusion: success]
+Step 15: Post Set up Node.js            [Status: completed, Conclusion: success]
+Step 16: Post Checkout repository       [Status: completed, Conclusion: success]
+Step 17: Complete job                   [Status: completed, Conclusion: success]
+----------------------------------------------------------------------
+
+Actual Terminal / Step Logs:
+======================================================================
+[Run backend tests]
+> giftlink-backend@1.0.0 test
+> mocha
+
+  Database connection module
+    √ should export a function
+
+  1 passing (18ms)
+
+[Build frontend]
+> giftlink-frontend@0.1.0 build
+> react-scripts build
+
+Creating an optimized production build...
+Compiled with warnings.
+File sizes after gzip:
+  56.17 kB  build/static/js/main.d5eaeffb.js
+  33.11 kB  build/static/css/main.862ba10c.css
+The project was built assuming it is hosted at /.
+The build folder is ready to be deployed.
+
+Conclusion: SUCCESS
+======================================================================
