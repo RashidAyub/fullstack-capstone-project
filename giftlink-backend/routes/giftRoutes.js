@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 const connectToDatabase = require('../models/db');
 
-// Get all gifts
-router.get('/', async (req, res) => {
+// Database connection using connectToDatabase()
+
+// GET /api/gifts - Get all gifts
+router.get(['/', '/api/gifts'], async (req, res) => {
     try {
-        // Task 1: Connect to MongoDB and store connection to db constant
+        // Task 1: Connect to MongoDB using connectToDatabase() and store connection to db constant
         const db = await connectToDatabase();
 
         // Task 2: use the collection() method to retrieve the gift collection
@@ -22,10 +24,10 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Get a gift by ID
-router.get('/:id', async (req, res) => {
+// GET /api/gifts/:id - Get a gift by ID
+router.get(['/:id', '/api/gifts/:id'], async (req, res) => {
     try {
-        // Task 1: Connect to MongoDB and store connection to db constant
+        // Task 1: Connect to MongoDB using connectToDatabase() and store connection to db constant
         const db = await connectToDatabase();
 
         // Task 2: use the collection() method to retrieve the gift collection
@@ -48,7 +50,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Add a new gift
-router.post('/', async (req, res, next) => {
+router.post(['/', '/api/gifts'], async (req, res, next) => {
     try {
         const db = await connectToDatabase();
         const collection = db.collection("gifts");
