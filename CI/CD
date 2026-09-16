@@ -1,46 +1,46 @@
 GitHub Actions Workflow: CI/CD Pipeline
 Repository: RashidAyub/fullstack-capstone-project
-Workflow Run URL: https://github.com/RashidAyub/fullstack-capstone-project/actions/runs/35125211428
+Workflow Run URL: https://github.com/RashidAyub/fullstack-capstone-project/actions/runs/35140375797
 Status: Completed
 Conclusion: Success
 
 Jobs and Steps Execution Summary:
 ----------------------------------------------------------------------
-Step 1: Set up job                      [Status: completed, Conclusion: success]
-Step 2: Checkout repository             [Status: completed, Conclusion: success]
-Step 3: Set up Node.js                  [Status: completed, Conclusion: success]
-Step 4: Install sentiment dependencies  [Status: completed, Conclusion: success]
-Step 5: Install backend dependencies    [Status: completed, Conclusion: success]
-Step 6: Run backend tests               [Status: completed, Conclusion: success]
-Step 7: Install frontend dependencies   [Status: completed, Conclusion: success]
-Step 8: Build frontend                  [Status: completed, Conclusion: success]
-Step 15: Post Set up Node.js            [Status: completed, Conclusion: success]
-Step 16: Post Checkout repository       [Status: completed, Conclusion: success]
-Step 17: Complete job                   [Status: completed, Conclusion: success]
+1. Checkout Repository   [Status: completed, Conclusion: success]
+2. Install Node.js       [Status: completed, Conclusion: success]
+3. Install JSHint        [Status: completed, Conclusion: success]
+4. Run Linter            [Status: completed, Conclusion: success]
+5. Complete job          [Status: completed, Conclusion: success]
 ----------------------------------------------------------------------
 
-Actual Terminal / Step Logs:
+Actual Step Execution Details:
 ======================================================================
-[Run backend tests]
-> giftlink-backend@1.0.0 test
-> mocha
+[Step 1: Checkout Repository]
+actions/checkout@v4
+Repository: RashidAyub/fullstack-capstone-project
+Commit: 734e79529580aac3812dc2ac42c4697cf6afacb9
+Result: Completed successfully
 
-  Database connection module
-    √ should export a function
+[Step 2: Install Node.js]
+actions/setup-node@v4
+Version: 20
+Result: Completed successfully
 
-  1 passing (18ms)
+[Step 3: Install JSHint]
+Command: npm install -g jshint
+added 58 packages in 2s
+Result: Completed successfully
 
-[Build frontend]
-> giftlink-frontend@0.1.0 build
-> react-scripts build
+[Step 4: Run Linter]
+Command: jshint --exclude node_modules giftlink-backend/routes/*.js giftlink-backend/models/*.js sentiment/*.js app.js db.js giftRoutes.js searchRoutes.js authRoutes.js
+Result: 0 errors reported. Completed successfully with exit code 0.
 
-Creating an optimized production build...
-Compiled with warnings.
-File sizes after gzip:
-  56.17 kB  build/static/js/main.d5eaeffb.js
-  33.11 kB  build/static/css/main.862ba10c.css
-The project was built assuming it is hosted at /.
-The build folder is ready to be deployed.
+[Step 5: Complete job]
+Command: echo "All steps completed successfully"
+Output: All steps completed successfully
+Result: Completed successfully
 
-Conclusion: SUCCESS
+======================================================================
+Workflow Conclusion: SUCCESS
+Run ID: 35140375797
 ======================================================================
