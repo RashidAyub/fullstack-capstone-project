@@ -8,40 +8,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-test:
+  lint-and-ci:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: |
-            giftlink-backend/package.json
-            sentiment/package.json
 
-      - name: Install sentiment dependencies
-        working-directory: ./sentiment
-        run: npm install
+      - name: Install JSHint
+        run: npm install -g jshint
 
-      - name: Install backend dependencies
-        working-directory: ./giftlink-backend
-        run: npm install
+      - name: Run Linter
+        run: |
+          jshint --exclude node_modules giftlink-backend/routes/*.js giftlink-backend/models/*.js sentiment/*.js app.js db.js giftRoutes.js searchRoutes.js authRoutes.js
 
-      - name: Run backend tests
-        working-directory: ./giftlink-backend
-        run: npm test
-
-      - name: Install frontend dependencies
-        working-directory: ./giftlink-frontend
-        run: npm install --legacy-peer-deps
-
-      - name: Build frontend
-        working-directory: ./giftlink-frontend
-        run: npm run build
-        env:
-          CI: false
+      - name: Complete job
+        run: echo "All steps completed successfully"

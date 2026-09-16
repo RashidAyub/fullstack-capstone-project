@@ -3,7 +3,7 @@ require('dotenv').config();
 const { MongoClient } = require('mongodb');
 
 // MongoDB connection URL with authentication options
-let url = `${process.env.MONGO_URL}`;
+let url = process.env.MONGO_URL || "mongodb://localhost:27017";
 
 let dbInstance = null;
 const dbName = "giftdb";
@@ -18,7 +18,7 @@ async function connectToDatabase() {
     // Task 1: Connect to MongoDB
     await client.connect();
 
-    // Task 2: Connect to database giftDB and store in variable dbInstance
+    // Task 2: Connect to database giftdb and store in variable dbInstance
     dbInstance = client.db(dbName);
 
     // Task 3: Return database instance
